@@ -7,7 +7,7 @@ This repository contains hands-on explorations and practical implementations of 
 
 It starts with the fundamentals of defining and using tools, progresses to connecting tools with language models, and then explores how AI agents use tools to accomplish tasks. Along the way, the concepts are applied through practical examples such as a currency conversion application that retrieves live exchange rates through an external API.
 
-The repository also explores the transition from the legacy ReAct agent implementation using `AgentExecutor` to the newer `create_agent()` interface.
+The repository also explores the transition from the legacy ReAct agent implementation using `AgentExecutor` to the newer `create_agent()` interface introduced in LangChain 1.x.
 
 ## Table of Contents
 
@@ -55,10 +55,7 @@ langchain-tools-agents-and-applications/
 ├── 3.1_agent_langchain_withupdation.ipynb
 ├── 3.2_agent_langchain_newapproach.ipynb
 │
-├── README.md
-├── requirements.txt
-├── .env.example
-└── .gitignore
+└── README.md
 ```
 
 ## Getting Started
@@ -98,13 +95,19 @@ source .venv/bin/activate
 
 ### 3. Install dependencies
 
+Install the required libraries using pip:
+
 ```bash
-pip install -r requirements.txt
+pip install langchain langchain-classic langchain-openai langchain-community langchain-core langchain-text-splitters langchainhub python-dotenv pydantic requests ddgs jupyter
 ```
+
+The dependencies may vary depending on the notebook you intend to execute.
 
 ### 4. Configure API keys
 
-Create a `.env` file in the root directory and add the required API keys.
+Some notebooks require API keys to access external services.
+
+Create a `.env` file in the repository root and add the required API keys.
 
 Refer to the [Environment Variables and API Keys](#environment-variables-and-api-keys) section for details.
 
@@ -295,7 +298,7 @@ load_dotenv()
 openai_api_key = os.getenv("OPENAI_API_KEY")
 ```
 
-**Important:** Never commit your `.env` file or actual API keys to GitHub. Keep `.env` in `.gitignore` and use `.env.example` to document the required environment variables.
+**Important:** Never commit your `.env` file or actual API keys to GitHub. Keep your API keys private and use environment variables to access them.
 
 ## Further Improvements
 
